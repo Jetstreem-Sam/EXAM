@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
         },
         industry: {
-            allowNull: true,
+            allowNull: false,
             type: DataTypes.STRING,
         },
         focusOfWork: {

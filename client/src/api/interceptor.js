@@ -26,12 +26,12 @@ instance.interceptors.response.use(
   },
   err => {
     if (
-      err.response.status === 408 &&
+      (err.response.status === 408 || 
+      err.response.status === 401) &&
       history.location.pathname !== '/login' &&
-      history.location.pathname !== '/registration' &&
-      history.location.pathname !== '/'
+      history.location.pathname !== '/registration' 
     ) {
-      history.replace('/login');
+   history.replace('/login');
     }
     return Promise.reject(err);
   }

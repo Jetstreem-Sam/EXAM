@@ -59,9 +59,10 @@ class CreatorDashboard extends React.Component {
   renderIndustryType = () => {
     const array = [];
     const { creatorFilter } = this.props;
+console.log(this.props)
     const { industry } = this.props.dataForContest.data;
     array.push(
-      <option key={0} value={null}>
+      <option key={0} value={''}>
         Choose industry
       </option>
     );
@@ -295,4 +296,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(CreatorDashboard)
-);
+)

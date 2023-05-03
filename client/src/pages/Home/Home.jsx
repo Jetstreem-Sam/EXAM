@@ -9,12 +9,14 @@ import styles from './Home.module.sass';
 import carouselConstants from '../../carouselConstants';
 import Spinner from '../../components/Spinner/Spinner';
 
+
 const Home = props => {
   const [index, setIndex] = useState(0);
   const [styleName, setStyle] = useState(styles.headline__static);
+  const [isAuth, setIsAuth] = useState(window.localStorage.getItem(CONSTANTS.ACCESS_TOKEN)?'/dashboard':'/login');
   let timeout;
-
   useEffect(() => {
+    
     timeout = setInterval(() => {
       setIndex(index + 1);
       setStyle(styles.headline__isloading);
@@ -50,7 +52,7 @@ const Home = props => {
                 for immediate purchase
               </p>
               <div className={styles.button}>
-                <Link className={styles.button__link} to='/dashboard'>
+                <Link className={styles.button__link} to={isAuth}>
                   DASHBOARD
                 </Link>
               </div>
@@ -246,7 +248,7 @@ const Home = props => {
               carouselType={carouselConstants.EXAMPLE_SLIDER}
             />
             <div className={styles.button}>
-              <Link className={styles.button__link} to='/dashboard'>
+              <Link className={styles.button__link} to={isAuth}>
                 DASHBOARD
               </Link>
             </div>

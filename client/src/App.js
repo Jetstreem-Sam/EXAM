@@ -18,6 +18,7 @@ import ContestCreationPage from './pages/ContestCreation/ContestCreationPage';
 import CONSTANTS from './constants';
 import browserHistory from './browserHistory';
 import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatContainer';
+import HowIttWorks from './pages/HowItWoks/HowIttWorks';
 
 class App extends Component {
   render () {
@@ -41,6 +42,7 @@ class App extends Component {
             path='/login'
             component={OnlyNotAuthorizedUserHoc(LoginPage)}
           />
+          <Route exact path='/howItWorks'component={(HowIttWorks)} />
           <Route
             exact
             path='/registration'
